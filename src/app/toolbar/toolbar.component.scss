@@ -1,0 +1,23 @@
+.logo {
+  height: 44px;
+}
+
+.menu {
+  margin: 0 2rem;
+  height: 56px;
+  display: flex;
+  align-items: stretch;
+
+  .menu-item {
+    display: flex;
+    align-items: stretch;
+    color: initial;
+    text-decoration: none;
+
+    a {
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+    }
+  }
+}

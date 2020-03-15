@@ -1,0 +1,24 @@
+<mat-toolbar>
+  <a [routerLink]="['/dashboard']">
+    <img class="logo" src="../../assets/logo.png" >
+  </a>
+  <section class="menu">
+    <span class="menu-item" matTooltip="Dashboard">
+      <a [routerLink]="['/dashboard']" matRipple class="menu-item">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+      </a>
+    </span>
+    
+    <span class="menu-item" matTooltip="Live Bets">
+      <a [routerLink]="['/live-bets']" matRipple class="menu-item">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">live_tv</mat-icon>
+      </a>
+    </span>
+    
+    <span class="menu-item" matTooltip="Legal Note">
+      <a [routerLink]="['/legal-note']" matRipple class="menu-item">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">note</mat-icon>
+      </a>
+    </span>
+  </section>
+</mat-toolbar>
