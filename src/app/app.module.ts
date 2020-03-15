@@ -8,9 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { LiveBetsComponent } from './live-bets/live-bets.component';
-import { LegalNoteComponent } from './legal-note/legal-note.component';
 import { SharedModule } from './shared/shared.module';
 import { BetsMaterialModule } from './shared/material.module';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { BetsMaterialModule } from './shared/material.module';
     DashboardComponent,
     ToolbarComponent,
     LiveBetsComponent,
-    LegalNoteComponent
+    ContactComponent
   ],
   imports: [
     BrowserModule,

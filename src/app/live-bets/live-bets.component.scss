@@ -1,0 +1,36 @@
+.filter-input {
+  width: 100%;
+}
+
+.bets-table {
+  width: 100%;
+
+  .center-content {
+    display: flex;
+    justify-content: center;
+  }
+}
+table {
+  width: 100%;
+}
+
+tr.bet-detail-row {
+  height: 0;
+}
+
+tr.bet-row:not(.bet-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.bet-row:not(.bet-expanded-row):active {
+  background: #efefef;
+}
+
+.bet-row td {
+  border-bottom-width: 0;
+}
+
+.bet-detail {
+  overflow: hidden;
+  display: flex;
+}

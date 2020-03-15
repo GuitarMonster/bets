@@ -1,0 +1,13 @@
+.address-container {
+  display: flex;
+  justify-content: center;
+
+  .address-card {
+    margin-top: 3rem;
+    max-width: 320px;
+
+    &-content {
+      margin-top: 1rem;
+    }
+  }
+}

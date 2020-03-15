@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LiveBetsComponent } from './live-bets/live-bets.component';
-import { LegalNoteComponent } from './legal-note/legal-note.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 const routes: Routes = [
@@ -15,8 +15,8 @@ const routes: Routes = [
     component: LiveBetsComponent
   },
   {
-    path: 'legal-note',
-    component: LegalNoteComponent
+    path: 'contact',
+    component: ContactComponent
   },
   {
     path: '',

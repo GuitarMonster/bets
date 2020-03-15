@@ -1,14 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LiveBetComponent } from './components/live-bet/live-bet.component';
+import { NgPipesModule } from 'ngx-pipes';
 
 @NgModule({
   declarations: [
     LiveBetComponent
   ],
-  exports: [LiveBetComponent],
+  exports: [
+    NgPipesModule,
+    LiveBetComponent
+  ],
   imports: [
-    BrowserModule
+    NgPipesModule
   ],
   providers: []
 })
