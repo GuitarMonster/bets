@@ -11,6 +11,11 @@ import { LiveBetsComponent } from './live-bets/live-bets.component';
 import { SharedModule } from './shared/shared.module';
 import { BetsMaterialModule } from './shared/material.module';
 import { ContactComponent } from './contact/contact.component';
+import { environment } from '../environments/environment';
+
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: environment.baseUrl, options: {} };
 
 @NgModule({
   declarations: [
@@ -25,6 +30,7 @@ import { ContactComponent } from './contact/contact.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    SocketIoModule.forRoot(config),
     BetsMaterialModule,
     SharedModule
   ],
