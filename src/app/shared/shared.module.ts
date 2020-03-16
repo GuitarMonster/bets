@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { LiveBetComponent } from './components/live-bet/live-bet.component';
 import { NgPipesModule } from 'ngx-pipes';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -8,10 +9,12 @@ import { NgPipesModule } from 'ngx-pipes';
   ],
   exports: [
     NgPipesModule,
-    LiveBetComponent
+    LiveBetComponent,
+    ReactiveFormsModule
   ],
   imports: [
-    NgPipesModule
+    NgPipesModule,
+    ReactiveFormsModule
   ],
   providers: []
 })

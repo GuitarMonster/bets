@@ -6,6 +6,7 @@ import { LiveBet } from '../interfaces/live-bet.interface';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { Subject } from 'rxjs';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'bet-live-bets',
@@ -36,11 +37,31 @@ export class LiveBetsComponent implements OnInit, OnDestroy {
   columnsToDisplay = ['match', 'firstWin', 'draw', 'secondWin'];
   expandedElement: LiveBet | null;
 
+  // turned out Angular still does not support min/max validators for template-driven forms
+  // https://github.com/angular/angular/issues/16352
+  updateRate = new FormControl(2, [Validators.min(1), Validators.max(20)]);
+  isLiveUpdateEnabled = true;
+
   constructor(private liveBetsService: LiveBetsService) { }
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
     this.liveBetsService.getBets();
+  }
+
+  onUpdateRateChange() {
+    if (!!this.updateRate.valid && !!this.isLiveUpdateEnabled) {
+      this.startSocketPulling();
+    }
+  }
+
+  onLiveUpdateChange() {
+    this.isLiveUpdateEnabled = !this.isLiveUpdateEnabled;
+    !!this.isLiveUpdateEnabled ? this.startSocketPulling() : this.liveBetsService.stopSocketPulling();
+  }
+
+  startSocketPulling() {
+    this.liveBetsService.startSocketPulling(this.updateRate.value);
   }
 
   ngOnDestroy(): void {
