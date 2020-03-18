@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { LiveBet } from 'src/app/interfaces/live-bet.interface';
 import { MatPaginator } from '@angular/material/paginator';
 import { FormControl, Validators } from '@angular/forms';
-import { LiveBetsService } from 'src/app/live-bets.service';
+import { LiveBetsService } from 'src/app/services/live-bets.service';
 
 @Component({
   selector: 'bet-live-bets',
@@ -21,8 +21,8 @@ export class LiveBetsComponent implements AfterViewInit, OnDestroy {
   liveBets$ = this.liveBetsService.liveBets.pipe(
     takeUntil(this.destroy$),
     skip(1),
-    map(data => !!this.previewMode ? data.slice(0, 5) : data),
-    tap(data => this.dataSource.data = data)
+    map((data: LiveBet[]) => !!this.previewMode ? data.slice(0, 5) : data),
+    tap((data: LiveBet[]) => this.dataSource.data = data)
   ).subscribe();
 
   dataSource = new MatTableDataSource<LiveBet>([]);

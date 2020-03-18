@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { LiveBet } from './interfaces/live-bet.interface';
+import { LiveBet } from '../interfaces/live-bet.interface';
 import { Socket } from 'ngx-socket-io';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
