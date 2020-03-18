@@ -1,23 +1,16 @@
 <div class="live-bets-container">
-  <section class="controls">
+  <section *ngIf="!previewMode" class="controls">
     <mat-form-field class="update-rate" appearance="legacy">
       <mat-label>Update Rate</mat-label>
-      <input
-        matInput
-        type="number" 
-        [formControl]="updateRate" 
-        (blur)="onUpdateRateChange()"
-        (keyup.enter)="onUpdateRateChange();"
-      >
+      <input matInput type="number" [formControl]="updateRate">
       <mat-hint>How many times per second to update</mat-hint>
       <mat-error *ngIf="updateRate.errors">Value should be between 1 and 20</mat-error>
     </mat-form-field> 
   
-    <mat-slide-toggle class="toggle" color="primary" [checked]="isLiveUpdateEnabled" (change)="onLiveUpdateChange()">
+    <mat-slide-toggle class="toggle-update" color="primary" [checked]="isLiveUpdateEnabled" (change)="onLiveUpdateChange()">
       Live update
     </mat-slide-toggle>
   </section>
-  
   
   <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="bets-table">
     <ng-container matColumnDef="match">
@@ -61,5 +54,6 @@
     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
     <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
   </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10" showFirstLastButtons></mat-paginator>
+  <mat-paginator *ngIf="!previewMode" [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  
 </div>

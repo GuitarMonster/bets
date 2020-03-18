@@ -1,6 +1,5 @@
 .live-bets-container {
-  margin: auto;
-  max-width: 1200px;
+  width: 100%;
 
   .controls {
     display: flex;
@@ -11,7 +10,7 @@
       width: 200px;
     }
   
-    .toggle {
+    .toggle-update {
       margin-left: 2rem;
     }
   }

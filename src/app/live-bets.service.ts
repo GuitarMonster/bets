@@ -14,16 +14,21 @@ export class LiveBetsService {
 
   // preventing external source from modifying this data
   private liveBetsData = new BehaviorSubject<LiveBet[]>([]);
-
   liveBets: Observable<LiveBet[]> = this.liveBetsData.asObservable();
 
   constructor(private http: HttpClient, private socket: Socket) {
-    this.startSocketPulling();
     socket.on('bet-updated', this.onBetUpdated.bind(this));
   }
 
-  onBetUpdated(newBets: LiveBet[]) {
-    // console.log(performance.now());
+  getBets(): void {
+    this.http.get<LiveBet[]>(this.baseUrl + 'bets')
+      .pipe(
+        catchError(this.handleError<LiveBet[]>('getHeroes', []))
+      ).subscribe(bets => this.liveBetsData.next(bets));
+  }
+
+  onBetUpdated(newBets: LiveBet[]): void {
+    // console.log(performance.now()); //used to measure performance
     let liveBets = this.liveBetsData.getValue();
 
     if (!!liveBets.length) {
@@ -40,29 +45,22 @@ export class LiveBetsService {
     }
 
     this.liveBetsData.next(liveBets);
-    console.log(newBets);
-    // console.log(performance.now());
+    // console.log(newBets);  //used to track socket updates
+    // console.log(performance.now()); //used to measure performance
   }
 
-  startSocketPulling(rate = 2) {
+  startSocketPulling(rate = 2): void {
     this.http.get<void>(this.baseUrl + 'pulling/start?rate=' + rate)
       .pipe(
         catchError(this.handleError<void>('startSocket'))
       ).subscribe();
   }
 
-  stopSocketPulling() {
+  stopSocketPulling(): void {
     this.http.get<void>(this.baseUrl + 'pulling/stop')
       .pipe(
         catchError(this.handleError<void>('startSocket'))
       ).subscribe();
-  }
-
-  getBets(): void {
-    this.http.get<LiveBet[]>(this.baseUrl + 'bets')
-      .pipe(
-        catchError(this.handleError<LiveBet[]>('getHeroes', []))
-      ).subscribe(bets => this.liveBetsData.next(bets));
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
