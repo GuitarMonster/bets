@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="dashboardPlayedNow" datatype="html">
+        <source>Played right now</source>
+        <target>Rozgrywane teraz</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/views/dashboard/dashboard.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardSeeFullList" datatype="html">
+        <source>See full list</source>
+        <target>Zobacz pełną listę</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/views/dashboard/dashboard.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="advertisementTitle" datatype="html">
+        <source>CREATE YOUR FUTURE WITH US!</source>
+        <target>TWÓRZ SWOJĄ PRZYSZŁOŚĆ Z NAMI!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/views/dashboard/dashboard.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="advertisementButton" datatype="html">
+        <source>JOIN OUR TEAM</source>
+        <target>DOłĄCZ DO NAS</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/views/dashboard/dashboard.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="updateRateInputLabel" datatype="html">
+        <source>Update Rate</source>
+        <target>Częstotliwość Aktualizacji</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/live-bets/live-bets.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="updateRateInputHint" datatype="html">
+        <source>How many times per second to update</source>
+        <target>Ile razy na sekundę aktualizować</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/live-bets/live-bets.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">updateRateInputHint</note>
+      </trans-unit>
+      <trans-unit id="updateRateInputError" datatype="html">
+        <source>Value should be between 1 and 20</source>
+        <target>Wartość powinna być pomiędzy 1 a 20</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/live-bets/live-bets.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">updateRateInputError</note>
+      </trans-unit>
+      <trans-unit id="liveUpdateToggle" datatype="html">
+        <source>Live update</source>
+        <target>Aktualizacja na żywo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/live-bets/live-bets.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tableHeaderMatch" datatype="html">
+        <source>Match</source>
+        <target>Mecz</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/live-bets/live-bets.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tableHeaderDraw" datatype="html">
+        <source>Draw</source>
+        <target>Remis</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/live-bets/live-bets.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="menuDashboard" datatype="html">
+        <source>Dashboard</source>
+        <target>Główna</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/toolbar/toolbar.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="menuLiveBetting" datatype="html">
+        <source>Live Betting</source>
+        <target>Zakłady na żywo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/toolbar/toolbar.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="menuContact" datatype="html">
+        <source>Contact</source>
+        <target>Kontakt</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/toolbar/toolbar.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="menuTheme" datatype="html">
+        <source>Dark Mode</source>
+        <target>Tryb Ciemny</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/toolbar/toolbar.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="livePageTitle" datatype="html">
+        <source>Don&apos;t miss oportunity to bet live on your favourite team!</source>
+        <target>Masz możliwość postawić na swoją ulubioną drużynę na żywo!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/views/live/live.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactTitle" datatype="html">
+        <source>Please contact us</source>
+        <target>Zapraszamy do kontaktu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/views/contact/contact.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addressPhone" datatype="html">
+        <source>Phone</source>
+        <target>Tel</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/views/contact/contact.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
