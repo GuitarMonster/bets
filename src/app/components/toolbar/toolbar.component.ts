@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'bet-toolbar',
@@ -6,11 +6,14 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./toolbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ToolbarComponent implements OnInit {
+export class ToolbarComponent {
+  @Input() darkThemeEnabled = true;
+
+  @Output() toggleTheme = new EventEmitter<void>();
 
   constructor() { }
 
-  ngOnInit(): void {
+  onThemeToggle() {
+    this.toggleTheme.emit();
   }
-
 }

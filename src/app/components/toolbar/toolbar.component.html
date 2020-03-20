@@ -1,24 +1,29 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <a [routerLink]="['/dashboard']">
     <img class="logo" src="../../assets/logo.png" >
   </a>
+
   <section class="menu">
-    <span class="menu-item" matTooltip="Dashboard">
-      <a [routerLink]="['/dashboard']" matRipple class="menu-item">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+    <span class="menu-item" i18n-matTooltip="@@menuDashboard" matTooltip="Dashboard">
+      <a [routerLink]="['/dashboard']" routerLinkActive="active" matRipple>
+        <mat-icon aria-hidden="false" color="accent" aria-label="Example home icon">home</mat-icon>
       </a>
     </span>
     
-    <span class="menu-item" matTooltip="Live">
-      <a [routerLink]="['/live']" matRipple class="menu-item">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">live_tv</mat-icon>
+    <span class="menu-item" i18n-matTooltip="@@menuLiveBetting" matTooltip="Live Betting">
+      <a [routerLink]="['/live']" routerLinkActive="active" matRipple>
+        <mat-icon aria-hidden="false" color="accent" aria-label="Example home icon">live_tv</mat-icon>
       </a>
     </span>
     
-    <span class="menu-item" matTooltip="Contact us">
-      <a [routerLink]="['/contact']" matRipple class="menu-item">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">note</mat-icon>
+    <span class="menu-item" i18n-matTooltip="@@menuContact" matTooltip="Contact">
+      <a [routerLink]="['/contact']" routerLinkActive="active" matRipple>
+        <mat-icon aria-hidden="false" color="accent" aria-label="Example home icon">note</mat-icon>
       </a>
     </span>
   </section>
+
+  <mat-slide-toggle class="theme-toggle" color="warn" [checked]="darkThemeEnabled" (change)="onThemeToggle()" i18n-matTooltip="@@menuTheme" matTooltip="Dark Mode">
+    <mat-icon aria-hidden="false" color="warn" aria-label="Example home icon">palette</mat-icon>
+  </mat-slide-toggle>
 </mat-toolbar>
