@@ -1,0 +1,22 @@
+@import '~@angular/material/theming';
+@import './mixins.scss';
+
+@include mat-core();
+
+$bet-primary: mat-palette($mat-indigo);
+$bet-accent:  mat-palette($mat-pink, A200, A100, A400);
+$bet-theme:   mat-light-theme($bet-primary, $bet-accent);
+
+@include angular-material-theme($bet-theme);
+@include menu-link-theme($bet-theme);
+
+// dart theme
+$dark-primary: mat-palette($mat-blue-grey);
+$dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+$dark-warn:    mat-palette($mat-deep-orange);
+$dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+.dark-theme {
+  @include angular-material-theme($dark-theme);
+  @include menu-link-theme($dark-theme);
+}
