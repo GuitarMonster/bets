@@ -1,6 +1,9 @@
-<section class="toolbar-container">
-  <bet-toolbar></bet-toolbar>
-</section>
-<section class="content-container">
-  <router-outlet></router-outlet>
-</section>
+<div class="app-container mat-app-background" [class.dark-theme]="isDarkTheme">
+  <section class="toolbar-container">
+    <bet-toolbar [darkThemeEnabled]="isDarkTheme" (toggleTheme)="isDarkTheme = !isDarkTheme"></bet-toolbar>
+  </section>
+  
+  <main class="content-container">
+    <router-outlet></router-outlet>
+  </main>
+</div> 

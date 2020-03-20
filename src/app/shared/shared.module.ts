@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { NgPipesModule } from 'ngx-pipes';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BetsMaterialModule } from './material.module';
 
 @NgModule({
   declarations: [],
   exports: [
-    NgPipesModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BetsMaterialModule
   ],
   imports: [
-    NgPipesModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BetsMaterialModule
   ],
   providers: []
 })

@@ -10,7 +10,6 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LiveBetsComponent } from './components/live-bets/live-bets.component';
 import { LiveComponent } from './views/live/live.component';
 import { SharedModule } from './shared/shared.module';
-import { BetsMaterialModule } from './shared/material.module';
 import { ContactComponent } from './views/contact/contact.component';
 import { environment } from '../environments/environment';
 
@@ -33,7 +32,6 @@ const config: SocketIoConfig = { url: environment.baseUrl, options: {} };
     BrowserAnimationsModule,
     HttpClientModule,
     SocketIoModule.forRoot(config),
-    BetsMaterialModule,
     SharedModule
   ],
   providers: [],
