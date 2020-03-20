@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ViewChild, Input, AfterViewInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnDestroy, ViewChild, Input, AfterViewInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil, skip, tap, distinctUntilChanged, debounceTime, map } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
@@ -30,7 +30,6 @@ export class LiveBetsComponent implements AfterViewInit, OnDestroy {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   columnsToDisplay = ['match', 'firstWin', 'draw', 'secondWin'];
-  expandedElement: LiveBet | null;
 
   // turned out Angular still does not support min/max validators for template-driven forms
   // https://github.com/angular/angular/issues/16352
@@ -38,17 +37,18 @@ export class LiveBetsComponent implements AfterViewInit, OnDestroy {
   isLiveUpdateEnabled = true;
 
   constructor(private liveBetsService: LiveBetsService) {
+    this.liveBetsService.getBets();
+    this.startSocketPulling();
+
     this.updateRate.valueChanges.pipe(
       takeUntil(this.destroy$),
       distinctUntilChanged(),
       debounceTime(400),
-    ).subscribe(newVal => {
+    ).subscribe(() => {
       if (!!this.updateRate.valid && !!this.isLiveUpdateEnabled) {
         this.startSocketPulling();
       }
     });
-    this.liveBetsService.getBets();
-    this.startSocketPulling();
   }
 
   ngAfterViewInit(): void {

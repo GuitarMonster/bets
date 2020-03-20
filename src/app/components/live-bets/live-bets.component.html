@@ -1,20 +1,20 @@
 <div class="live-bets-container">
   <section *ngIf="!previewMode" class="controls">
     <mat-form-field class="update-rate" appearance="legacy">
-      <mat-label>Update Rate</mat-label>
+      <mat-label i18n="@@updateRateInputLabel">Update Rate</mat-label>
       <input matInput type="number" [formControl]="updateRate">
-      <mat-hint>How many times per second to update</mat-hint>
-      <mat-error *ngIf="updateRate.errors">Value should be between 1 and 20</mat-error>
+      <mat-hint i18n="@@updateRateInputHint">How many times per second to update</mat-hint>
+      <mat-error *ngIf="updateRate.errors" i18n="@@updateRateInputError">Value should be between 1 and 20</mat-error>
     </mat-form-field> 
   
-    <mat-slide-toggle class="toggle-update" color="primary" [checked]="isLiveUpdateEnabled" (change)="onLiveUpdateChange()">
+    <mat-slide-toggle class="toggle-update" color="warn" [checked]="isLiveUpdateEnabled" (change)="onLiveUpdateChange()" i18n="@@liveUpdateToggle">
       Live update
     </mat-slide-toggle>
   </section>
   
   <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="bets-table">
     <ng-container matColumnDef="match">
-      <th mat-header-cell *matHeaderCellDef>Match</th>
+      <th mat-header-cell *matHeaderCellDef i18n="@@tableHeaderMatch">Match</th>
       <td mat-cell *matCellDef="let bet" class="name-cell"> {{ bet.teams[0].name }} - {{ bet.teams[1].name }} </td>
     </ng-container>
   
@@ -24,18 +24,18 @@
       </th>
       <td mat-cell *matCellDef="let bet">
         <span class="center-content">
-          {{ bet.teams[0].win | number: '1.2-2' }}
+          {{ bet.teams[0].win | currency:'USD':'symbol-narrow':'1.2-2' }}
         </span>
       </td>
     </ng-container>
   
     <ng-container matColumnDef="draw">
       <th mat-header-cell *matHeaderCellDef>
-        <span class="center-content">Draw</span>
+        <span class="center-content" i18n="@@tableHeaderDraw">Draw</span>
       </th>
       <td mat-cell *matCellDef="let bet">
         <span class="center-content">
-          {{ bet.draw | number: '1.2-2' }}
+          {{ bet.draw | currency:'USD':'symbol-narrow':'1.2-2' }}
         </span>
       </td>
     </ng-container>
@@ -44,9 +44,9 @@
       <th mat-header-cell *matHeaderCellDef>
         <span class="center-content">2</span>
       </th>
-      <td mat-cell *matCellDef="let bet"> 
+      <td mat-cell *matCellDef="let bet">
         <span class="center-content">
-          {{ bet.teams[1].win | number: '1.2-2' }} 
+          {{ bet.teams[1].win | currency:'USD':'symbol-narrow':'1.2-2' }}
         </span>
       </td>
     </ng-container>
@@ -54,6 +54,5 @@
     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
     <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
   </table>
-  <mat-paginator *ngIf="!previewMode" [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-  
+  <mat-paginator *ngIf="!previewMode" [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons i18n="@@paginator"></mat-paginator>
 </div>
