@@ -20,7 +20,7 @@
       </trans-unit>
       <trans-unit id="advertisementTitle" datatype="html">
         <source>CREATE YOUR FUTURE WITH US!</source>
-        <target>TWÓRZ SWOJĄ PRZYSZŁOŚĆ Z NAMI!</target>
+        <target>TWÓRZ PRZYSZŁOŚĆ RAZEM Z NAMI!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/dashboard/dashboard.component.html</context>
           <context context-type="linenumber">10</context>
