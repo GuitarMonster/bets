@@ -1,0 +1,46 @@
+.live-bets {
+  padding: 1rem 0 3rem;
+
+  &-title {
+    padding: 0 1.5rem;
+
+    h3 {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+  }
+}
+
+.advertisement {
+  height: 400px;
+  background-image: url("../../../assets/banner-hiring-soccer-player.jpg");
+  background-position: right;
+  background-size: cover;
+  position: relative;
+  color: white;
+
+  .title {
+    font-size: 2.5rem;
+    position: absolute;
+    top: 100px;
+    left: 60px;
+  }
+
+  .join-btn {
+    position: absolute;
+    top: 160px;
+    left: 60px;
+    font-size: 1rem;
+    display: inline-block;
+    border: 2px solid white;
+    border-radius: 100rem;
+    padding: 1rem;
+    transition: color 300ms ease-out, background-color 300ms ease-out, border-color 300ms ease-out;
+
+    &:hover {
+      cursor: pointer;
+      border-color: #ff2400;
+      background-color: #ff2400;
+    }
+  }
+}

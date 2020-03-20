@@ -1,2 +1,12 @@
+<section class="live-bets">
+  <div class="live-bets-title">
+    <h3 i18n="@@dashboardPlayedNow">Played right now</h3>
+    <button mat-stroked-button color="primary" [routerLink]="['/live']" i18n="@@dashboardSeeFullList">See full list</button>
+  </div>
+  <bet-live-bets [previewMode]="true"></bet-live-bets>
+</section>
 
-<bet-live-bets [previewMode]="true"></bet-live-bets>
+<div class="advertisement">
+  <div class="title" i18n="@@advertisementTitle">CREATE YOUR FUTURE WITH US!</div>
+  <div class="join-btn" i18n="@@advertisementButton">JOIN OUR TEAM</div>
+</div>
