@@ -14,6 +14,8 @@ export class LiveBetsService {
 
   // preventing external source from modifying this data
   private liveBetsData = new BehaviorSubject<LiveBet[]>([]);
+
+  // exposing data to external source
   liveBets: Observable<LiveBet[]> = this.liveBetsData.asObservable();
 
   constructor(private http: HttpClient, private socket: Socket) {
@@ -45,7 +47,7 @@ export class LiveBetsService {
     }
 
     this.liveBetsData.next(liveBets);
-    // console.log(newBets);  //used to track socket updates
+    // console.log(newBets);  //used to track socket updates in the console
     // console.log(performance.now()); //used to measure performance
   }
 

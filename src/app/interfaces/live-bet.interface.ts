@@ -1,7 +1,7 @@
 export interface LiveBet {
   id: string;
   draw: number;
-  teams: [LiveBetTeam, LiveBetTeam]
+  teams: [LiveBetTeam, LiveBetTeam];
 }
 
 export interface LiveBetTeam {
