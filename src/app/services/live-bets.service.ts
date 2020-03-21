@@ -25,7 +25,7 @@ export class LiveBetsService {
   getBets(): void {
     this.http.get<LiveBet[]>(this.baseUrl + 'bets')
       .pipe(
-        catchError(this.handleError<LiveBet[]>('getHeroes', []))
+        catchError(this.handleError<LiveBet[]>([]))
       ).subscribe(bets => this.liveBetsData.next(bets));
   }
 
@@ -54,18 +54,18 @@ export class LiveBetsService {
   startSocketPulling(rate = 2): void {
     this.http.get<void>(this.baseUrl + 'pulling/start?rate=' + rate)
       .pipe(
-        catchError(this.handleError<void>('startSocket'))
+        catchError(this.handleError<void>())
       ).subscribe();
   }
 
   stopSocketPulling(): void {
     this.http.get<void>(this.baseUrl + 'pulling/stop')
       .pipe(
-        catchError(this.handleError<void>('startSocket'))
+        catchError(this.handleError<void>())
       ).subscribe();
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
+  handleError<T>(result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
 

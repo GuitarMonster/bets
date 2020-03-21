@@ -14,9 +14,18 @@ import { LiveBetsService } from 'src/app/services/live-bets.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LiveBetsComponent implements AfterViewInit, OnDestroy {
+  destroy$ = new Subject<void>();
+
+  // turned out Angular still does not support min/max validators for template-driven forms
+  // https://github.com/angular/angular/issues/16352
+  updateRate = new FormControl(2, [Validators.min(1), Validators.max(20)]);
+  isLiveUpdateEnabled = true;
+  columnsToDisplay = ['match', 'firstWin', 'draw', 'secondWin'];
+  dataSource = new MatTableDataSource<LiveBet>([]);
+
   @Input() previewMode = false;
 
-  private destroy$ = new Subject<void>();
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   liveBets$ = this.liveBetsService.liveBets.pipe(
     takeUntil(this.destroy$),
@@ -24,17 +33,6 @@ export class LiveBetsComponent implements AfterViewInit, OnDestroy {
     map((data: LiveBet[]) => !!this.previewMode ? data.slice(0, 5) : data),
     tap((data: LiveBet[]) => this.dataSource.data = data)
   ).subscribe();
-
-  dataSource = new MatTableDataSource<LiveBet>([]);
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
-  columnsToDisplay = ['match', 'firstWin', 'draw', 'secondWin'];
-
-  // turned out Angular still does not support min/max validators for template-driven forms
-  // https://github.com/angular/angular/issues/16352
-  updateRate = new FormControl(2, [Validators.min(1), Validators.max(20)]);
-  isLiveUpdateEnabled = true;
 
   constructor(private liveBetsService: LiveBetsService) {
     this.liveBetsService.getBets();
@@ -61,7 +59,7 @@ export class LiveBetsComponent implements AfterViewInit, OnDestroy {
   }
 
   startSocketPulling(): void {
-    this.liveBetsService.startSocketPulling(this.updateRate.value || 2);
+    this.liveBetsService.startSocketPulling(this.updateRate.value);
   }
 
   stopSocketPulling(): void {
