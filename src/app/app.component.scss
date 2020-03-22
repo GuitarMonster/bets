@@ -1,9 +1,10 @@
 .app-container {
-  height: 100%;
+  min-height: 100%;
 
   .content-container {
     height: calc(100% - 64px);
     max-width: 1200px;
     margin: auto;
+    padding-bottom: 2rem;
   }
 }
