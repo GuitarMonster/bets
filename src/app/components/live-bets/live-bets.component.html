@@ -7,7 +7,7 @@
       <mat-error *ngIf="updateRate.errors" i18n="@@updateRateInputError">Value should be between 1 and 20</mat-error>
     </mat-form-field> 
   
-    <mat-slide-toggle class="toggle-update" color="warn" [checked]="isLiveUpdateEnabled" (change)="onLiveUpdateChange()" i18n="@@liveUpdateToggle">
+    <mat-slide-toggle class="toggle-update" color="accent" [checked]="isLiveUpdateEnabled" (change)="onLiveUpdateChange()" i18n="@@liveUpdateToggle">
       Live update
     </mat-slide-toggle>
   </section>

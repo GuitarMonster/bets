@@ -4,12 +4,8 @@
 @mixin menu-link-theme($theme) {
   $background: map-get($theme, background);
   $background-color:  map-get($background, background);
-  $foreground: map-get($theme, foreground);
-  $foreground-color:  map-get($foreground, foreground);
 
   .toolbar-container .menu-item a {
-    $color: $foreground-color;
-
     &.active {
       background-color: $background-color;
     }
